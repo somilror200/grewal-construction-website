@@ -1,8 +1,5 @@
 /* 
-==========================================================================
-   CSS ARCHITECTURE BY A RETIRING GOOGLE SENIOR DEV
-   Project: Grewal Concrete and Carpentry - The Legacy Build
-==========================================================================
+style.css
 */
 
 :root {
@@ -326,4 +323,555 @@ footer {
   
   .grid-2 { grid-template-columns: 1fr; }
   .section-title { font-size: var(--fs-lg); margin-bottom: 2.5rem; }
+}
+
+
+/* ==========================================================================
+   FINAL POLISH — PRODUCTION UI SYSTEM
+   ==========================================================================
+   Goals:
+   - stronger visual hierarchy without changing the existing brand direction
+   - better keyboard accessibility and reduced-motion support
+   - modern responsive behavior from mobile through large displays
+   - more deliberate interaction states
+   - safer overflow, typography, and media behavior
+   - premium construction/industrial feel without unnecessary visual noise
+   ========================================================================== */
+
+/* --- Design tokens ------------------------------------------------------ */
+:root {
+  --black: #0b0b0d;
+  --surface-1: #111114;
+  --surface-2: #18181c;
+  --line-light: rgba(255,255,255,.10);
+  --line-dark: rgba(17,17,20,.10);
+
+  --orange-bright: #ff6a1a;
+  --orange-deep: #b93808;
+
+  --content-max: 1440px;
+  --content-narrow: 1120px;
+
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
+  --header-height: 76px;
+}
+
+/* --- Global quality-of-life -------------------------------------------- */
+::selection {
+  background: var(--orange);
+  color: var(--white);
+}
+
+html {
+  scroll-padding-top: calc(var(--header-height) + 24px);
+}
+
+body {
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:disabled,
+[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+/* Keep decorative media from causing layout shifts or accidental overflow. */
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+svg {
+  overflow: visible;
+}
+
+/* --- Consistent content width ------------------------------------------ */
+section > *,
+header > *,
+footer > * {
+  width: min(100%, var(--content-max));
+  margin-inline: auto;
+}
+
+section > .grid-2,
+section > .grid-3,
+section > .grid-4,
+section > .builder-strip {
+  width: min(100%, var(--content-max));
+}
+
+section > .section-title {
+  max-width: var(--content-narrow);
+}
+
+/* --- Header refinement -------------------------------------------------- */
+header {
+  min-height: var(--header-height);
+  padding-block: .75rem;
+  isolation: isolate;
+  transition:
+    background-color .35s var(--ease-out),
+    box-shadow .35s var(--ease-out),
+    border-color .35s var(--ease-out);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  pointer-events: none;
+}
+
+.logo {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.logo:hover {
+  color: var(--white);
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav a:not(.btn) {
+  color: rgba(255,255,255,.78);
+  transition:
+    color .25s var(--ease-out),
+    transform .25s var(--ease-out);
+}
+
+nav a:not(.btn):hover {
+  color: var(--white);
+}
+
+nav a:not(.btn)::after {
+  height: 2px;
+  border-radius: 999px;
+  box-shadow: 0 0 12px var(--orange-glow);
+}
+
+/* --- Buttons: tactile but controlled ----------------------------------- */
+.btn {
+  min-height: 48px;
+  white-space: nowrap;
+  transform: translateZ(0);
+  transition:
+    transform .28s var(--ease-out),
+    box-shadow .28s var(--ease-out),
+    background .28s var(--ease-out);
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    rgba(255,255,255,.18) 45%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform .65s var(--ease-out);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  transform: translateX(130%);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(255,255,255,.9);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--orange-glow), var(--shadow-orange);
+}
+
+.btn-outline {
+  background: rgba(255,255,255,.72);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+
+.btn-large {
+  min-height: 60px;
+}
+
+/* --- Typography refinement --------------------------------------------- */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.section-title {
+  text-wrap: balance;
+}
+
+.section-title::after {
+  box-shadow: 0 0 18px var(--orange-glow);
+}
+
+/* --- Cards -------------------------------------------------------------- */
+.card {
+  overflow: hidden;
+  border: 1px solid var(--line-dark);
+  border-bottom: 4px solid var(--orange);
+  transition:
+    transform .4s var(--ease-out),
+    box-shadow .4s var(--ease-out),
+    border-color .3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(234,88,12,.09),
+      transparent 35%
+    );
+  opacity: 0;
+  transition: opacity .4s var(--ease-out);
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(234,88,12,.22);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3,
+.card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Builder strip ----------------------------------------------------- */
+.builder-strip {
+  position: relative;
+  overflow: hidden;
+}
+
+.builder-strip::before,
+.builder-strip::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(234,88,12,.07);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.builder-strip::before {
+  left: -120px;
+  top: -150px;
+}
+
+.builder-strip::after {
+  right: -120px;
+  bottom: -150px;
+}
+
+.builder-strip span {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Dark sections ----------------------------------------------------- */
+.bg-dark {
+  position: relative;
+  isolation: isolate;
+}
+
+.bg-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.025),
+      transparent 40%
+    );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --- Footer ------------------------------------------------------------- */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: -260px;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(234,88,12,.08);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.footer-grid,
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Forms / controls (if present in the HTML) ------------------------- */
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid rgba(17,17,20,.16);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text-main);
+  padding: .9rem 1rem;
+  outline: none;
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+  border-color: rgba(17,17,20,.28);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 4px var(--orange-glow);
+}
+
+/* --- Mobile navigation: cleaner, safer, more app-like ----------------- */
+.mobile-menu-btn {
+  position: relative;
+  z-index: 1002;
+  width: 46px;
+  height: 46px;
+  display: none;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--white);
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255,255,255,.10);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+    --container-px: 1.15rem;
+    --section-py: clamp(3.75rem, 12vw, 5.5rem);
+  }
+
+  header {
+    min-height: var(--header-height);
+    padding-inline: var(--container-px);
+  }
+
+  .mobile-menu-btn {
+    display: grid;
+    margin-left: auto;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    box-shadow: 0 20px 45px rgba(0,0,0,.28);
+  }
+
+  nav ul {
+    transform: translateY(-8px);
+    transition:
+      max-height .45s var(--ease-out),
+      opacity .25s ease,
+      transform .45s var(--ease-out),
+      padding .3s ease;
+  }
+
+  nav ul.active {
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav a {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+
+  nav .btn {
+    width: min(88%, 360px);
+  }
+
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 2rem 1.4rem;
+  }
+
+  .btn-large {
+    width: 100%;
+  }
+}
+
+/* --- Small phones ------------------------------------------------------ */
+@media (max-width: 420px) {
+  :root {
+    --container-px: 1rem;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+    letter-spacing: .5px;
+  }
+
+  .section-title {
+    letter-spacing: 1px;
+  }
+
+  .builder-strip {
+    gap: 1.25rem;
+    padding-block: 2.25rem;
+  }
+}
+
+/* --- Larger screens ---------------------------------------------------- */
+@media (min-width: 1440px) {
+  :root {
+    --section-py: 8rem;
+  }
+
+  nav ul {
+    gap: 3rem;
+  }
+}
+
+/* --- Reduced motion: respect the user, keep the UI functional --------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
+
+/* --- High contrast / forced colors ------------------------------------- */
+@media (forced-colors: active) {
+  .btn,
+  .btn-outline,
+  input,
+  textarea,
+  select {
+    border: 2px solid ButtonText;
+  }
+
+  :focus-visible {
+    outline: 3px solid Highlight;
+  }
+}
+
+/* --- Print -------------------------------------------------------------- */
+@media print {
+  header,
+  .mobile-menu-btn,
+  nav,
+  .btn,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  section {
+    padding-block: 1.5rem;
+    break-inside: avoid;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #bbb;
+  }
 }
