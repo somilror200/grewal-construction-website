@@ -1,145 +1,329 @@
-/* css/style.css */
+/* 
+==========================================================================
+   CSS ARCHITECTURE BY A RETIRING GOOGLE SENIOR DEV
+   Project: Grewal Concrete and Carpentry - The Legacy Build
+==========================================================================
+*/
+
 :root {
-  --charcoal: #2b2b2b;
+  /* Core Palette - Deepened for maximum contrast and premium feel */
+  --charcoal: #17171a; 
+  --charcoal-light: #25252a;
   --concrete: #f4f4f5;
   --concrete-dark: #e4e4e7;
-  --orange: #ea580c; /* Safety/Amber Accent */
+  --orange: #ea580c; 
   --orange-hover: #c2410c;
+  --orange-glow: rgba(234, 88, 12, 0.3);
   --white: #ffffff;
   --text-main: #3f3f46;
+  --text-muted: #71717a;
+
+  /* Fluid Typography - Scales dynamically based on screen size (Clamp is magic) */
+  --fs-base: clamp(1rem, 0.95vw + 0.8rem, 1.125rem);
+  --fs-lg: clamp(1.125rem, 1.2vw + 0.9rem, 1.5rem);
+  --fs-xl: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  --fs-xxl: clamp(2.25rem, 4vw + 1.5rem, 4rem);
+
+  /* Spacing & Radii */
+  --container-px: clamp(1.5rem, 5vw, 5rem);
+  --section-py: clamp(4rem, 8vw, 7rem);
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* High-End Shadows & Easings */
+  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 10px 20px -3px rgb(0 0 0 / 0.08);
+  --shadow-hover: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-orange: 0 8px 20px -4px var(--orange-glow);
+  --bouncy-af: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --smooth-af: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
-body { background-color: var(--concrete); color: var(--text-main); line-height: 1.6; }
-a { text-decoration: none; color: inherit; }
+/* =========================================
+   RESET & BASE
+   ========================================= */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 80px; /* Prevents anchor links from hiding under header */
+}
+
+body { 
+  background-color: var(--concrete); 
+  color: var(--text-main); 
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+  font-size: var(--fs-base);
+  line-height: 1.7; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: color 0.2s var(--smooth-af); }
 img { max-width: 100%; height: auto; display: block; }
 
-/* Sticky Header */
+/* Custom Sexy Scrollbar */
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 6px; border: 3px solid var(--charcoal); }
+::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+/* Accessibility Focus States */
+:focus-visible { outline: 3px dashed var(--orange); outline-offset: 4px; }
+
+/* =========================================
+   HEADER & NAVIGATION (Glassmorphism)
+   ========================================= */
 header {
-  background-color: var(--charcoal);
+  background: rgba(23, 23, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--white);
-  padding: 1rem 5%;
+  padding: 1rem var(--container-px);
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--white); }
+.logo { 
+  font-size: var(--fs-lg); 
+  font-weight: 900; 
+  letter-spacing: 1px; 
+  color: var(--white); 
+}
 .logo span { color: var(--orange); }
 
-nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
-nav a { font-weight: 600; transition: color 0.3s ease; }
-nav a:hover { color: var(--orange); }
+nav ul { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+nav a { 
+  font-weight: 600; 
+  position: relative; 
+  padding: 0.5rem 0;
+}
+/* Cool underline hover effect for links */
+nav a:not(.btn)::after {
+  content: ''; position: absolute; width: 0; height: 2px;
+  bottom: 0; left: 0; background-color: var(--orange);
+  transition: width 0.3s var(--smooth-af);
+}
+nav a:not(.btn):hover::after { width: 100%; }
+nav a:hover { color: var(--white); }
 
-/* Buttons */
+/* =========================================
+   BUTTONS (The Masterpiece)
+   ========================================= */
 .btn {
-  background-color: var(--orange);
+  background: linear-gradient(135deg, var(--orange) 0%, #f97316 100%);
   color: var(--white) !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 700;
+  padding: 0.85rem 2rem;
+  border-radius: 50px; /* Pill shape is high-end */
+  font-weight: 800;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
-  text-align: center;
   border: none;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-orange);
+  transition: all 0.4s var(--bouncy-af);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
-.btn:hover { background-color: var(--orange-hover); transform: translateY(-2px); }
-.btn-outline { background-color: transparent; border: 2px solid var(--charcoal); color: var(--charcoal) !important; }
-.btn-outline:hover { background-color: var(--charcoal); color: var(--white) !important; }
-.btn-large { font-size: 1.2rem; padding: 1rem 2rem; width: 100%; max-width: 400px; margin-bottom: 1rem; }
 
-/* Sections & Typography */
-section { padding: 4rem 5%; }
+/* Button Hover Flare */
+.btn::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, var(--orange-hover) 0%, var(--orange) 100%);
+  z-index: -1; opacity: 0; transition: opacity 0.3s ease;
+}
+.btn:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 25px -5px var(--orange-glow); }
+.btn:hover::before { opacity: 1; }
+.btn:active { transform: translateY(1px) scale(0.98); }
+
+.btn-outline { 
+  background: transparent; 
+  border: 2px solid var(--charcoal); 
+  color: var(--charcoal) !important; 
+  box-shadow: none;
+}
+.btn-outline:hover { background: var(--charcoal); color: var(--white) !important; border-color: var(--charcoal); }
+.btn-large { font-size: var(--fs-lg); padding: 1.2rem 2.5rem; width: 100%; max-width: 400px; margin-bottom: 1rem; }
+
+/* =========================================
+   SECTIONS & TYPOGRAPHY
+   ========================================= */
+section { padding: var(--section-py) var(--container-px); }
 .bg-white { background-color: var(--white); }
 .bg-dark { background-color: var(--charcoal); color: var(--white); }
 
-h1, h2, h3 { color: var(--charcoal); margin-bottom: 1rem; font-weight: 800; }
-.bg-dark h2, .bg-dark h3 { color: var(--white); }
-.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; text-transform: uppercase; }
-.section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--orange); margin: 10px auto 0; }
+h1, h2, h3 { 
+  color: var(--charcoal); 
+  margin-bottom: 1rem; 
+  font-weight: 900; 
+  line-height: 1.1; 
+  letter-spacing: -0.02em; 
+}
+.bg-dark h2, .bg-dark h3, .bg-dark h1, .bg-dark p { color: var(--white); }
 
-/* Grids */
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.section-title { 
+  text-align: center; 
+  font-size: var(--fs-xl); 
+  margin-bottom: 4rem; 
+  text-transform: uppercase; 
+  letter-spacing: 2px;
+  position: relative;
+}
+.section-title::after { 
+  content: ''; 
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px; 
+  height: 5px; 
+  background: var(--orange); 
+  border-radius: 3px;
+}
 
-/* Cards */
+/* =========================================
+   LAYOUT GRIDS
+   ========================================= */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+
+/* =========================================
+   CARDS (Neumorphic Edge)
+   ========================================= */
 .card {
   background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   border-bottom: 4px solid var(--orange);
-  transition: transform 0.3s ease;
+  transition: all 0.4s var(--bouncy-af);
+  position: relative;
+  z-index: 1;
 }
-.card:hover { transform: translateY(-5px); }
+/* Hardware accelerated shadow transition trick */
+.card::after {
+  content: ''; position: absolute; inset: 0;
+  border-radius: inherit; box-shadow: var(--shadow-hover);
+  opacity: 0; transition: opacity 0.4s var(--smooth-af); z-index: -1;
+}
+.card:hover { transform: translateY(-8px); }
+.card:hover::after { opacity: 1; }
+.card h3 { font-size: var(--fs-lg); margin-bottom: 0.75rem; }
 
-@view-transition {
-  navigation: auto;
+/* =========================================
+   BUILDER STRIP
+   ========================================= */
+.builder-strip { 
+  display: flex; 
+  justify-content: center; 
+  gap: clamp(2rem, 5vw, 5rem); 
+  flex-wrap: wrap; 
+  align-items: center; 
+  padding: 3rem var(--container-px); 
+  background: var(--concrete-dark); 
+  font-weight: 800; 
+  font-size: var(--fs-lg); 
+  color: var(--charcoal-light); 
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.builder-strip span { transition: color 0.3s ease; cursor: default; }
+.builder-strip span:hover { color: var(--orange); }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer { 
+  background-color: var(--charcoal); 
+  color: var(--concrete); 
+  padding: 5rem var(--container-px) 2rem; 
+  font-size: 0.95rem; 
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+.footer-grid h3 { color: var(--white); font-size: var(--fs-lg); margin-bottom: 1.5rem; letter-spacing: 1px; }
+.footer-bottom { 
+  text-align: center; 
+  padding-top: 2rem; 
+  border-top: 1px solid rgba(255,255,255,0.1); 
+  color: var(--text-muted); 
 }
 
-/* Builders Logo Strip */
-.builder-strip { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; align-items: center; padding: 2rem 5%; background: var(--concrete-dark); font-weight: 700; font-size: 1.2rem; color: var(--charcoal); }
+/* =========================================
+   VIEW TRANSITION API (The Cherry on Top)
+   Creates native app-like page transitions
+   ========================================= */
+@view-transition { navigation: auto; }
 
-/* Footer */
-footer { background-color: var(--charcoal); color: var(--concrete); padding: 3rem 5% 1rem; font-size: 0.9rem; }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #444; }
-.footer-bottom p { opacity: 0.7; }
-
-/* Mobile Menu Toggle */
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
 .mobile-menu-btn { 
   display: none; 
   background: none; 
   border: none; 
   color: var(--white); 
-  font-size: 1.5rem; 
+  font-size: 2rem; 
   cursor: pointer; 
+  transition: transform 0.3s ease;
 }
+.mobile-menu-btn:active { transform: scale(0.9); }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .mobile-menu-btn { 
-    display: block; 
-    /* This pushes the button completely to the right edge */
-    margin-left: auto; 
-  }
+  .mobile-menu-btn { display: block; margin-left: auto; }
   
   nav {
-    /* This takes the nav out of the header's top row layout completely */
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
+    /* Subtle drop shadow for the dropdown */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   }
   
   nav ul {
     display: flex;
-  width: 100%;
-  background-color: var(--charcoal);
-  flex-direction: column;
-  padding: 0;
-  gap: 0;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
-}
+    width: 100%;
+    background-color: rgba(23, 23, 26, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s var(--bouncy-af), opacity 0.4s ease, padding 0.4s ease;
+    border-bottom: 2px solid var(--orange);
+  }
   
   nav ul.active {
-  max-height: 500px;
-  opacity: 1;
-  padding: 1rem 0;
-}
+    max-height: 500px;
+    opacity: 1;
+    padding: 1.5rem 0;
+  }
+  
   nav ul li { width: 100%; text-align: center; }
-  nav a, nav .btn { display: block; padding: 1rem; border-radius: 0; }
+  nav a { display: block; padding: 1rem; border-radius: 0; font-size: 1.1rem; }
+  nav a:not(.btn)::after { display: none; } /* Remove underline effect on mobile */
+  
+  nav .btn { 
+    margin: 1rem auto; 
+    width: 80%; 
+    border-radius: 8px; /* Square off the button slightly for mobile menus */
+  }
   
   .grid-2 { grid-template-columns: 1fr; }
-  .section-title { font-size: 2rem; }
+  .section-title { font-size: var(--fs-lg); margin-bottom: 2.5rem; }
 }
