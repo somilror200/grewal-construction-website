@@ -80,6 +80,10 @@ h1, h2, h3 { color: var(--charcoal); margin-bottom: 1rem; font-weight: 800; }
 }
 .card:hover { transform: translateY(-5px); }
 
+@view-transition {
+  navigation: auto;
+}
+
 /* Builders Logo Strip */
 .builder-strip { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; align-items: center; padding: 2rem 5%; background: var(--concrete-dark); font-weight: 700; font-size: 1.2rem; color: var(--charcoal); }
 
@@ -116,15 +120,23 @@ footer { background-color: var(--charcoal); color: var(--concrete); padding: 3re
   }
   
   nav ul {
-    display: none; 
-    width: 100%; 
-    background-color: var(--charcoal); 
-    flex-direction: column; 
-    padding: 1rem 0; 
-    gap: 0;
-  }
+    display: flex;
+  width: 100%;
+  background-color: var(--charcoal);
+  flex-direction: column;
+  padding: 0;
+  gap: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+}
   
-  nav ul.active { display: flex; }
+  nav ul.active {
+  max-height: 500px;
+  opacity: 1;
+  padding: 1rem 0;
+}
   nav ul li { width: 100%; text-align: center; }
   nav a, nav .btn { display: block; padding: 1rem; border-radius: 0; }
   
