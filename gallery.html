@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Grewal Concrete</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item { background: #ddd; height: 200px; cursor: pointer; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        
+        .lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+        .lightbox img { max-width: 90%; max-height: 90%; }
+        .close-lb { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GREWAL <span>CONCRETE</span></div>
+        <button class="mobile-menu-btn">☰</button>
+        <nav><ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="tel:0478147125" class="btn">Call Now</a></li>
+        </ul></nav>
+    </header>
+
+    <section class="bg-white">
+        <h1 class="section-title">Our Work & Equipment</h1>
+        
+        <h2 style="margin-top: 2rem;">Our Fleet & Equipment</h2>
+        <div class="gallery-grid" style="margin-bottom: 4rem;">
+            <!-- CHECK 1 & 2: Assets 1 to 4 -->
+            <div class="gallery-item" data-src="src/images/asset1.jpg">
+                <img src="src/images/asset1.jpg" alt="Fleet Asset 1">
+            </div>
+            <div class="gallery-item" data-src="src/images/asset2.jpg">
+                <img src="src/images/asset2.jpg" alt="Fleet Asset 2">
+            </div>
+            <div class="gallery-item" data-src="src/images/asset3.jpg">
+                <img src="src/images/asset3.jpg" alt="Fleet Asset 3">
+            </div>
+            <div class="gallery-item" data-src="src/images/asset4.jpg">
+                <img src="src/images/asset4.jpg" alt="Fleet Asset 4">
+            </div>
+        </div>
+
+        <h2>Recent Projects</h2>
+        <div class="gallery-grid">
+            <!-- CHECK 1 & 2: Sites 1 to 8 -->
+            <div class="gallery-item" data-src="src/images/site1.jpg">
+                <img src="src/images/site1.jpg" alt="Job Site 1">
+            </div>
+            <div class="gallery-item" data-src="src/images/site2.jpg">
+                <img src="src/images/site2.jpg" alt="Job Site 2">
+            </div>
+            <div class="gallery-item" data-src="src/images/site3.jpg">
+                <img src="src/images/site3.jpg" alt="Job Site 3">
+            </div>
+            <div class="gallery-item" data-src="src/images/site4.jpg">
+                <img src="src/images/site4.jpg" alt="Job Site 4">
+            </div>
+            <div class="gallery-item" data-src="src/images/site5.jpg">
+                <img src="src/images/site5.jpg" alt="Job Site 5">
+            </div>
+            <div class="gallery-item" data-src="src/images/site6.jpg">
+                <img src="src/images/site6.jpg" alt="Job Site 6">
+            </div>
+            <div class="gallery-item" data-src="src/images/site7.jpg">
+                <img src="src/images/site7.jpg" alt="Job Site 7">
+            </div>
+            <div class="gallery-item" data-src="src/images/site8.jpg">
+                <img src="src/images/site8.jpg" alt="Job Site 8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Element -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lb" id="close-lb">&times;</span>
+        <div id="lb-content" style="color:white; font-size: 1.5rem;">Image will load here</div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom"><p>Designed by Somil Garak</p></div>
+    </footer>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

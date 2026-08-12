@@ -1,0 +1,133 @@
+/* css/style.css */
+:root {
+  --charcoal: #2b2b2b;
+  --concrete: #f4f4f5;
+  --concrete-dark: #e4e4e7;
+  --orange: #ea580c; /* Safety/Amber Accent */
+  --orange-hover: #c2410c;
+  --white: #ffffff;
+  --text-main: #3f3f46;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+body { background-color: var(--concrete); color: var(--text-main); line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Sticky Header */
+header {
+  background-color: var(--charcoal);
+  color: var(--white);
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--white); }
+.logo span { color: var(--orange); }
+
+nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
+nav a { font-weight: 600; transition: color 0.3s ease; }
+nav a:hover { color: var(--orange); }
+
+/* Buttons */
+.btn {
+  background-color: var(--orange);
+  color: var(--white) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover { background-color: var(--orange-hover); transform: translateY(-2px); }
+.btn-outline { background-color: transparent; border: 2px solid var(--charcoal); color: var(--charcoal) !important; }
+.btn-outline:hover { background-color: var(--charcoal); color: var(--white) !important; }
+.btn-large { font-size: 1.2rem; padding: 1rem 2rem; width: 100%; max-width: 400px; margin-bottom: 1rem; }
+
+/* Sections & Typography */
+section { padding: 4rem 5%; }
+.bg-white { background-color: var(--white); }
+.bg-dark { background-color: var(--charcoal); color: var(--white); }
+
+h1, h2, h3 { color: var(--charcoal); margin-bottom: 1rem; font-weight: 800; }
+.bg-dark h2, .bg-dark h3 { color: var(--white); }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; text-transform: uppercase; }
+.section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--orange); margin: 10px auto 0; }
+
+/* Grids */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+
+/* Cards */
+.card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border-bottom: 4px solid var(--orange);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: translateY(-5px); }
+
+/* Builders Logo Strip */
+.builder-strip { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; align-items: center; padding: 2rem 5%; background: var(--concrete-dark); font-weight: 700; font-size: 1.2rem; color: var(--charcoal); }
+
+/* Footer */
+footer { background-color: var(--charcoal); color: var(--concrete); padding: 3rem 5% 1rem; font-size: 0.9rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #444; }
+.footer-bottom p { opacity: 0.7; }
+
+/* Mobile Menu Toggle */
+.mobile-menu-btn { 
+  display: none; 
+  background: none; 
+  border: none; 
+  color: var(--white); 
+  font-size: 1.5rem; 
+  cursor: pointer; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mobile-menu-btn { 
+    display: block; 
+    /* This pushes the button completely to the right edge */
+    margin-left: auto; 
+  }
+  
+  nav {
+    /* This takes the nav out of the header's top row layout completely */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+  
+  nav ul {
+    display: none; 
+    width: 100%; 
+    background-color: var(--charcoal); 
+    flex-direction: column; 
+    padding: 1rem 0; 
+    gap: 0;
+  }
+  
+  nav ul.active { display: flex; }
+  nav ul li { width: 100%; text-align: center; }
+  nav a, nav .btn { display: block; padding: 1rem; border-radius: 0; }
+  
+  .grid-2 { grid-template-columns: 1fr; }
+  .section-title { font-size: 2rem; }
+}
