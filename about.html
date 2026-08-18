@@ -1,79 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Grewal Construction</title>
-    <meta name="description" content="Learn about Grewal Concrete and Carpentry, founded by Harry Grewal — a certified carpenter with 8 years of concreting experience, serving Melbourne since 2021.">
-    <meta name="theme-color" content="#17171a">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>About | Grewal Construction</title>
+<meta name="description" content="Learn about Grewal Construction, established in 2021 and owned by Harry Grewal, a certified carpenter with hands-on concreting experience.">
+<meta name="theme-color" content="#111315">
+<meta property="og:title" content="About | Grewal Construction">
+<meta property="og:description" content="Learn about Grewal Construction, established in 2021 and owned by Harry Grewal, a certified carpenter with hands-on concreting experience.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="public/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="public/favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="public/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <header>
-        <a href="index.html" class="logo" aria-label="Grewal Construction — home">
-            <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="logo-img">
-        </a>
-        <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="is-active">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="tel:0478147125" class="btn">Call Now</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="bg-white">
-        <span class="eyebrow">Our Story</span>
-        <h1 class="section-title">About Our Company</h1>
-        <div class="grid-2">
-            <div>
-                <h2>Established in 2021</h2>
-                <p>Grewal Concrete and Carpentry was built on the foundation of hard work and precision. Operating out of Beveridge, we serve the greater Melbourne area and the northern growth corridor, providing top-tier concrete, formwork, and framing services to both private clients and major builders.</p>
-                <br>
-                <h2>Meet Harry Grewal</h2>
-                <p>The business is owned and operated by Harry Grewal. With 8 years of hands-on experience in concreting and full certification as a carpenter, Harry brings a unique dual-trade perspective to every job site. Knowing exactly how a frame interacts with a slab means fewer headaches for builders and a perfectly level finish every time.</p>
-            </div>
-            <div class="media-frame" style="height: 440px;">
-                <img src="src/images/asset1.jpg" alt="Harry Grewal with equipment">
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="footer-brand-logo">
-                <p>Grewal Construction Pty Ltd<br>ACN: 655 034 281</p>
-                <p>Designed by Somil Garak</p>
-            </div>
-            <div>
-                <h3 style="color: var(--white); margin-bottom: 1rem;">Quick Links</h3>
-                <ul class="footer-nav-list">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 style="color: var(--white); margin-bottom: 1rem;">Contact</h3>
-                <p>44 Kelly St, Beveridge, VIC</p>
-                <p>Phone: <a href="tel:0478147125">0478 147 125</a></p>
-                <p>Email: <a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Grewal Construction Pty Ltd. All rights reserved. | Designed by Somil Garak</p>
-        </div>
-    </footer>
-    <script src="js/about.js"></script>
+<body class="about-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="nav-shell">
+    <a class="brand" href="index.html" aria-label="Grewal Construction home"><img src="src/images/logo-header.jpg" alt="Grewal Construction logo"></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle><span></span><span></span><span></span></button>
+    <nav class="primary-nav" aria-label="Primary navigation" data-nav>
+      <a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a>
+      <a class="nav-call" href="tel:0478147125">Call 0478 147 125</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-hero page-hero-split">
+  <div class="shell page-hero-grid">
+    <div class="page-hero-copy reveal"><p class="eyebrow">About Grewal Construction</p><h1>Hard work.<br>Precision.<br>Two trades.</h1><p>Grewal Concrete and Carpentry was established in 2021 and operates from Beveridge, servicing Greater Melbourne and the northern growth corridor.</p></div>
+    <div class="page-hero-media reveal"><img src="src/images/asset1.jpg" alt="Harry Grewal with Grewal Construction equipment"></div>
+  </div>
+</section>
+<section class="section">
+  <div class="shell story-layout">
+    <aside class="story-mark reveal"><img src="src/images/company_logo.jpg" alt="Grewal Construction company logo"><p>Grewal Construction Pty Ltd<br>ACN 655 034 281</p></aside>
+    <div class="story-main">
+      <div class="story-block reveal"><p class="eyebrow">Established 2021</p><h2>Built on a foundation of hard work and precision.</h2><p>Operating out of Beveridge, Grewal Concrete and Carpentry provides concrete, formwork and framing services to private clients and major builders across the greater Melbourne area and northern growth corridor.</p></div>
+      <div class="story-block reveal"><p class="eyebrow">Meet Harry Grewal</p><h2>Experience on the slab. Certification in the frame.</h2><p>The business is owned and operated by Harry Grewal. With 8 years of hands-on experience in concreting and full certification as a carpenter, Harry brings a dual-trade perspective to every job site.</p><p>Understanding how a frame interacts with a slab helps reduce problems between stages and supports a level, accurate finish.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section section-dark">
+  <div class="shell about-image-band">
+    <div class="about-image-wide reveal"><img src="src/images/asset4.jpg" alt="Grewal Construction fleet" loading="lazy"></div>
+    <div class="about-principles reveal"><p class="eyebrow light">How we work</p><h2>Practical from the first cut to the final frame.</h2><ul class="principle-list"><li><span>01</span><div><strong>Precision</strong><p>Work built around levels, engineering requirements and clean execution.</p></div></li><li><span>02</span><div><strong>Trade awareness</strong><p>Concrete and carpentry knowledge considered together, not in isolation.</p></div></li><li><span>03</span><div><strong>Site capability</strong><p>Excavation, preparation, slab work and framing supported by Grewal’s own fleet and equipment.</p></div></li></ul></div>
+  </div>
+</section>
+<section class="trust-rail trust-rail-light"><div class="shell trust-inner"><p>Working alongside</p><div class="trust-names"><span>Henley Homes</span><span>Simonds Homes</span><span>Nostra Homes</span><span>Eldeco Homes</span></div></div></section>
+<section class="cta-band"><div class="shell cta-inner reveal"><div><p class="eyebrow light">Talk to us</p><h2>Discuss your next concrete or carpentry project.</h2></div><a class="button button-primary" href="contact.html">Contact Grewal Construction</a></div></section>
+</main>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand"><img src="src/images/company_logo.jpg" alt="Grewal Construction company logo"><p>Grewal Construction Pty Ltd<br>ACN 655 034 281</p></div>
+    <div><p class="footer-kicker">Navigate</p><div class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div></div>
+    <div><p class="footer-kicker">Contact</p><div class="footer-links"><a href="tel:0478147125">0478 147 125</a><a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a><span>44 Kelly St, Beveridge, VIC</span></div></div>
+  </div>
+  <div class="shell footer-bottom"><span>© <span data-year>2026</span> Grewal Construction Pty Ltd.</span><span>Designed by Somil Garak</span></div>
+</footer>
+<script src="js/site.js"></script>
 </body>
 </html>
