@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Grewal Concrete</title>
+    <title>Services | Grewal Construction</title>
+    <meta name="description" content="Concrete slabs, sand slabs, framing, formwork, driveways, excavation, piers and base preparation from Grewal Concrete and Carpentry in Melbourne.">
+    <meta name="theme-color" content="#17171a">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header here -->
     <header>
-        <div class="logo">GREWAL <span>CONCRETE</span></div>
-        <button class="mobile-menu-btn">☰</button>
+        <a href="index.html" class="logo" aria-label="Grewal Construction — home">
+            <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav><ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="services.html" class="is-active">Services</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tel:0478147125" class="btn">Call Now</a></li>
@@ -22,46 +28,95 @@
     </header>
 
     <section>
+        <span class="eyebrow">Our Services</span>
         <h1 class="section-title">What We Do</h1>
         <div class="grid-4">
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M3 15v2M21 15v2M7 9V6M12 9V6M17 9V6"/></svg>
+                </div>
                 <h3>Concrete Slabs</h3>
                 <p>Durable, precision-poured concrete slabs for residential homes, garages, and commercial builds.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-4 4-6 9-6s7 2 9 6"/><circle cx="7" cy="19" r=".8" fill="currentColor" stroke="none"/><circle cx="12" cy="20" r=".8" fill="currentColor" stroke="none"/><circle cx="17" cy="19" r=".8" fill="currentColor" stroke="none"/></svg>
+                </div>
                 <h3>Sand Slabs</h3>
                 <p>Specialised sand slab preparation for highly reactive soils common in Melbourne's northern suburbs.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+                </div>
                 <h3>Frames</h3>
                 <p>Complete timber framing services by certified carpenters, built true and straight.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="6" rx="1"/><path d="M7 9v6M11 9v3M15 9v6M19 9v3"/></svg>
+                </div>
                 <h3>Formwork</h3>
                 <p>Robust formwork set up to handle complex designs and ensure clean, sharp concrete edges.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21L9 3h6l4 18"/><path d="M12 6v3M12 12v3"/></svg>
+                </div>
                 <h3>Driveways</h3>
                 <p>Exposed aggregate, plain, or coloured concrete driveways built to handle heavy vehicles and look great.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4l7 7-3 3-7-7 3-3z"/><path d="M4 20l6-6"/><path d="M9 15l-2 2a2 2 0 102.8 2.8l2-2"/></svg>
+                </div>
                 <h3>Excavation</h3>
                 <p>Site cuts, trenching, and soil removal using our own fleet of modern excavators and trucks.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 21V9M12 21V5M18 21v-8"/><path d="M3 21h18"/></svg>
+                </div>
                 <h3>Piers</h3>
                 <p>Deep bored concrete piers to provide structural stability and anchor slabs on difficult terrain.</p>
             </div>
             <div class="card">
+                <div class="service-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h18M3 13h18M3 18h18"/></svg>
+                </div>
                 <h3>Base / Pre-slab</h3>
                 <p>Thorough ground preparation, levelling, and moisture barrier installation before the pour.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer here -->
     <footer>
-        <div class="footer-bottom"><p>Designed by Somil Garak</p></div>
+        <div class="footer-grid">
+            <div>
+                <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="footer-brand-logo">
+                <p>Grewal Construction Pty Ltd<br>ACN: 655 034 281</p>
+                <p>Designed by Somil Garak</p>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Contact</h3>
+                <p>44 Kelly St, Beveridge, VIC</p>
+                <p>Phone: <a href="tel:0478147125">0478 147 125</a></p>
+                <p>Email: <a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Grewal Construction Pty Ltd. All rights reserved. | Designed by Somil Garak</p>
+        </div>
     </footer>
     <script src="js/services.js"></script>
 </body>

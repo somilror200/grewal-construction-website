@@ -3,64 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Grewal Concrete</title>
+    <title>Contact | Grewal Construction</title>
+    <meta name="description" content="Get in touch with Grewal Concrete and Carpentry — 44 Kelly St, Beveridge VIC. Call 0478 147 125 or email for a free quote.">
+    <meta name="theme-color" content="#17171a">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="logo">GREWAL <span>CONCRETE</span></div>
-        <button class="mobile-menu-btn">☰</button>
+        <a href="index.html" class="logo" aria-label="Grewal Construction — home">
+            <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav><ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html" class="is-active">Contact</a></li>
             <li><a href="tel:0478147125" class="btn">Call Now</a></li>
         </ul></nav>
     </header>
 
     <section class="bg-white">
+        <span class="eyebrow">Contact Us</span>
         <h1 class="section-title">Get in Touch</h1>
         <div class="grid-2">
-            <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div style="display: flex; flex-direction: column; align-items: flex-start; width: 100%;">
                 <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to discuss your next build? Reach out directly for a quote or consultation. No forms to fill out—just tap to call or email.</p>
-                
-                <a href="tel:0478147125" class="btn btn-large">📞 Call Now: 0478 147 125</a>
-                <a href="mailto:Harry@grewalconcrete.com.au" class="btn btn-large" style="background-color: var(--charcoal);">✉️ Email Us</a>
-                
-                <div style="margin-top: 2rem;">
+
+                <div class="contact-actions">
+                    <a href="tel:0478147125" class="btn btn-large">📞 Call Now: 0478 147 125</a>
+                    <a href="mailto:Harry@grewalconcrete.com.au" class="btn btn-large btn-dark">✉️ Email Us</a>
+                </div>
+
+                <div class="info-card" style="width: 100%;">
                     <h3>Business Details</h3>
                     <p><strong>Grewal Concrete and Carpentry</strong></p>
                     <p>44 Kelly St, Beveridge, VIC</p>
-                    <p>Servicing Greater Melbourne & Northern Suburbs</p>
-                    <br>
+                    <p>Servicing Greater Melbourne &amp; Northern Suburbs</p>
+                </div>
+                <div class="info-card" style="width: 100%;">
                     <h3>Hours</h3>
                     <p>Monday - Friday: 7:00 AM - 5:00 PM</p>
                     <p>Saturday: 7:00 AM - 1:00 PM</p>
                     <p>Sunday: Closed</p>
                 </div>
             </div>
-            
+
             <!-- Google Maps iframe -->
-            <div style="width: 100%; height: 400px; background: #eee; border-radius: 8px; overflow: hidden;">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.713295847424!2d144.9754756!3d-37.5147575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64c4b00000001%3A0x0!2s44%20Kelly%20St%2C%20Beveridge%20VIC%203753!5e0!3m2!1sen!2sau!4v1690000000000!5m2!1sen!2sau" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
+            <div class="media-frame" style="width: 100%; height: 440px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.713295847424!2d144.9754756!3d-37.5147575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64c4b00000001%3A0x0!2s44%20Kelly%20St%2C%20Beveridge%20VIC%203753!5e0!3m2!1sen!2sau!4v1690000000000!5m2!1sen!2sau"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-bottom"><p>Designed by Somil Garak</p></div>
+        <div class="footer-grid">
+            <div>
+                <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="footer-brand-logo">
+                <p>Grewal Construction Pty Ltd<br>ACN: 655 034 281</p>
+                <p>Designed by Somil Garak</p>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Contact</h3>
+                <p>44 Kelly St, Beveridge, VIC</p>
+                <p>Phone: <a href="tel:0478147125">0478 147 125</a></p>
+                <p>Email: <a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Grewal Construction Pty Ltd. All rights reserved. | Designed by Somil Garak</p>
+        </div>
     </footer>
     <script src="js/contact.js"></script>
 </body>

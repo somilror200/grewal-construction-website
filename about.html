@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Grewal Concrete</title>
+    <title>About Us | Grewal Construction</title>
+    <meta name="description" content="Learn about Grewal Concrete and Carpentry, founded by Harry Grewal — a certified carpenter with 8 years of concreting experience, serving Melbourne since 2021.">
+    <meta name="theme-color" content="#17171a">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <div class="logo">GREWAL <span>CONCRETE</span></div>
-        <button class="mobile-menu-btn">☰</button>
+        <a href="index.html" class="logo" aria-label="Grewal Construction — home">
+            <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="is-active">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -23,6 +30,7 @@
     </header>
 
     <section class="bg-white">
+        <span class="eyebrow">Our Story</span>
         <h1 class="section-title">About Our Company</h1>
         <div class="grid-2">
             <div>
@@ -32,15 +40,39 @@
                 <h2>Meet Harry Grewal</h2>
                 <p>The business is owned and operated by Harry Grewal. With 8 years of hands-on experience in concreting and full certification as a carpenter, Harry brings a unique dual-trade perspective to every job site. Knowing exactly how a frame interacts with a slab means fewer headaches for builders and a perfectly level finish every time.</p>
             </div>
-            <div style="height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 8px; overflow: hidden;">
-                <!-- CHECK 1 & 2: Updated to asset1.jpg -->
-                <img src="src/images/asset1.jpg" alt="Harry Grewal with equipment" style="width: 100%; height: 100%; object-fit: cover;">
+            <div class="media-frame" style="height: 440px;">
+                <img src="src/images/asset1.jpg" alt="Harry Grewal with equipment">
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="footer-bottom"><p>Designed by Somil Garak</p></div>
+        <div class="footer-grid">
+            <div>
+                <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="footer-brand-logo">
+                <p>Grewal Construction Pty Ltd<br>ACN: 655 034 281</p>
+                <p>Designed by Somil Garak</p>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Contact</h3>
+                <p>44 Kelly St, Beveridge, VIC</p>
+                <p>Phone: <a href="tel:0478147125">0478 147 125</a></p>
+                <p>Email: <a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Grewal Construction Pty Ltd. All rights reserved. | Designed by Somil Garak</p>
+        </div>
     </footer>
     <script src="js/about.js"></script>
 </body>

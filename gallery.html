@@ -3,91 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Grewal Concrete</title>
+    <title>Gallery | Grewal Construction</title>
+    <meta name="description" content="See Grewal Concrete and Carpentry's fleet, equipment, and recent concrete and carpentry projects across Melbourne.">
+    <meta name="theme-color" content="#17171a">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/favicon-180.png">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-        .gallery-item { background: #ddd; height: 200px; cursor: pointer; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .gallery-item:hover img { transform: scale(1.05); }
-        
-        .lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
-        .lightbox img { max-width: 90%; max-height: 90%; }
-        .close-lb { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
+        .gallery-item { background: var(--concrete-dark); height: 220px; cursor: pointer; border-radius: var(--radius-md); overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid var(--line-dark); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease-out); }
+        .gallery-item:hover img { transform: scale(1.06); }
+
+        .lightbox { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(11,11,13,0.94); align-items: center; justify-content: center; }
+        .lightbox img { max-width: 88%; max-height: 82%; border-radius: var(--radius-md); box-shadow: 0 25px 60px rgba(0,0,0,.5); }
+        .close-lb { position: absolute; top: 24px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; line-height: 1; z-index: 1; }
+        .close-lb:hover { color: var(--orange-bright); }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">GREWAL <span>CONCRETE</span></div>
-        <button class="mobile-menu-btn">☰</button>
+        <a href="index.html" class="logo" aria-label="Grewal Construction — home">
+            <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
         <nav><ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="gallery.html" class="is-active">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="tel:0478147125" class="btn">Call Now</a></li>
         </ul></nav>
     </header>
 
     <section class="bg-white">
-        <h1 class="section-title">Our Work & Equipment</h1>
-        
-        <h2 style="margin-top: 2rem;">Our Fleet & Equipment</h2>
+        <span class="eyebrow">Our Work</span>
+        <h1 class="section-title">Our Work &amp; Equipment</h1>
+
+        <h2 style="margin-top: 2rem;">Our Fleet &amp; Equipment</h2>
         <div class="gallery-grid" style="margin-bottom: 4rem;">
-            <!-- CHECK 1 & 2: Assets 1 to 4 -->
-            <div class="gallery-item" data-src="src/images/asset1.jpg">
-                <img src="src/images/asset1.jpg" alt="Fleet Asset 1">
+            <div class="gallery-item" data-src="src/images/asset1.jpg" data-caption="Fleet Asset 1">
+                <img src="src/images/asset1.jpg" alt="Fleet Asset 1" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/asset2.jpg">
-                <img src="src/images/asset2.jpg" alt="Fleet Asset 2">
+            <div class="gallery-item" data-src="src/images/asset2.jpg" data-caption="Fleet Asset 2">
+                <img src="src/images/asset2.jpg" alt="Fleet Asset 2" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/asset3.jpg">
-                <img src="src/images/asset3.jpg" alt="Fleet Asset 3">
+            <div class="gallery-item" data-src="src/images/asset3.jpg" data-caption="Fleet Asset 3">
+                <img src="src/images/asset3.jpg" alt="Fleet Asset 3" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/asset4.jpg">
-                <img src="src/images/asset4.jpg" alt="Fleet Asset 4">
+            <div class="gallery-item" data-src="src/images/asset4.jpg" data-caption="Fleet Asset 4">
+                <img src="src/images/asset4.jpg" alt="Fleet Asset 4" loading="lazy">
             </div>
         </div>
 
         <h2>Recent Projects</h2>
         <div class="gallery-grid">
-            <!-- CHECK 1 & 2: Sites 1 to 8 -->
-            <div class="gallery-item" data-src="src/images/site1.jpg">
-                <img src="src/images/site1.jpg" alt="Job Site 1">
+            <div class="gallery-item" data-src="src/images/site1.jpg" data-caption="Job Site 1">
+                <img src="src/images/site1.jpg" alt="Job Site 1" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site2.jpg">
-                <img src="src/images/site2.jpg" alt="Job Site 2">
+            <div class="gallery-item" data-src="src/images/site2.jpg" data-caption="Job Site 2">
+                <img src="src/images/site2.jpg" alt="Job Site 2" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site3.jpg">
-                <img src="src/images/site3.jpg" alt="Job Site 3">
+            <div class="gallery-item" data-src="src/images/site3.jpg" data-caption="Job Site 3">
+                <img src="src/images/site3.jpg" alt="Job Site 3" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site4.jpg">
-                <img src="src/images/site4.jpg" alt="Job Site 4">
+            <div class="gallery-item" data-src="src/images/site4.jpg" data-caption="Job Site 4">
+                <img src="src/images/site4.jpg" alt="Job Site 4" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site5.jpg">
-                <img src="src/images/site5.jpg" alt="Job Site 5">
+            <div class="gallery-item" data-src="src/images/site5.jpg" data-caption="Job Site 5">
+                <img src="src/images/site5.jpg" alt="Job Site 5" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site6.jpg">
-                <img src="src/images/site6.jpg" alt="Job Site 6">
+            <div class="gallery-item" data-src="src/images/site6.jpg" data-caption="Job Site 6">
+                <img src="src/images/site6.jpg" alt="Job Site 6" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site7.jpg">
-                <img src="src/images/site7.jpg" alt="Job Site 7">
+            <div class="gallery-item" data-src="src/images/site7.jpg" data-caption="Job Site 7">
+                <img src="src/images/site7.jpg" alt="Job Site 7" loading="lazy">
             </div>
-            <div class="gallery-item" data-src="src/images/site8.jpg">
-                <img src="src/images/site8.jpg" alt="Job Site 8">
+            <div class="gallery-item" data-src="src/images/site8.jpg" data-caption="Job Site 8">
+                <img src="src/images/site8.jpg" alt="Job Site 8" loading="lazy">
             </div>
         </div>
     </section>
 
     <!-- Lightbox Element -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lb" id="close-lb">&times;</span>
-        <div id="lb-content" style="color:white; font-size: 1.5rem;">Image will load here</div>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <span class="close-lb" id="close-lb" aria-label="Close preview">&times;</span>
+        <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous image">&#8249;</button>
+        <div id="lb-content">Image will load here</div>
+        <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Next image">&#8250;</button>
+        <span class="lightbox-caption" id="lb-caption"></span>
     </div>
 
     <footer>
-        <div class="footer-bottom"><p>Designed by Somil Garak</p></div>
+        <div class="footer-grid">
+            <div>
+                <img src="src/images/logo-header.jpg" alt="Grewal Construction logo" class="footer-brand-logo">
+                <p>Grewal Construction Pty Ltd<br>ACN: 655 034 281</p>
+                <p>Designed by Somil Garak</p>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="color: var(--white); margin-bottom: 1rem;">Contact</h3>
+                <p>44 Kelly St, Beveridge, VIC</p>
+                <p>Phone: <a href="tel:0478147125">0478 147 125</a></p>
+                <p>Email: <a href="mailto:Harry@grewalconcrete.com.au">Harry@grewalconcrete.com.au</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Grewal Construction Pty Ltd. All rights reserved. | Designed by Somil Garak</p>
+        </div>
     </footer>
     <script src="js/gallery.js"></script>
 </body>

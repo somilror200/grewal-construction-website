@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(menuBtn && navMenu) {
         menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', isOpen);
         });
     }
 });

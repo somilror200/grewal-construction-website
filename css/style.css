@@ -153,6 +153,12 @@ nav a:hover { color: var(--white); }
 .btn-outline:hover { background: var(--charcoal); color: var(--white) !important; border-color: var(--charcoal); }
 .btn-large { font-size: var(--fs-lg); padding: 1.2rem 2.5rem; width: 100%; max-width: 400px; margin-bottom: 1rem; }
 
+.btn-dark {
+  background: var(--charcoal);
+  box-shadow: var(--shadow-md);
+}
+.btn-dark::before { background: var(--black); }
+
 /* =========================================
    SECTIONS & TYPOGRAPHY
    ========================================= */
@@ -874,4 +880,346 @@ select:focus {
     box-shadow: none;
     border: 1px solid #bbb;
   }
+}
+
+/* ==========================================================================
+   BRAND LOGO — header lockup
+   ========================================================================== */
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .logo-img { height: 34px; }
+}
+
+/* --- Active nav state ---------------------------------------------------- */
+nav a.is-active:not(.btn) {
+  color: var(--white);
+}
+
+nav a.is-active:not(.btn)::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   HERO — image-backed, gradient overlay
+   ========================================================================== */
+.hero-pro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: min(88vh, 780px);
+  padding: 8rem var(--container-px) 6rem;
+  color: var(--white);
+}
+
+.hero-pro-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-pro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(11,11,13,.86) 0%, rgba(11,11,13,.80) 45%, rgba(11,11,13,.94) 100%);
+}
+
+.hero-pro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(60% 55% at 50% 8%, rgba(234,88,12,.20), transparent 70%);
+}
+
+.hero-pro-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-pro-logo {
+  height: clamp(70px, 9vw, 110px);
+  width: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,.5));
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--orange-bright);
+  background: rgba(234,88,12,.12);
+  border: 1px solid rgba(234,88,12,.35);
+  padding: .5rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-pro h1 {
+  font-size: var(--fs-xxl);
+  margin-bottom: 1.25rem;
+  color: var(--white);
+}
+
+.hero-pro p {
+  font-size: var(--fs-lg);
+  color: rgba(255,255,255,.85);
+  max-width: 620px;
+  margin: 0 auto 2.25rem;
+}
+
+.hero-pro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   FEATURE GRID — homepage USP cards (replaces narrative bio on homepage)
+   ========================================================================== */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+}
+
+.feature-card {
+  background: var(--white);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform .4s var(--ease-out), box-shadow .4s var(--ease-out), border-color .3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(234,88,12,.22);
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--orange) 0%, #f97316 100%);
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-orange);
+}
+
+.feature-icon svg { width: 26px; height: 26px; }
+
+.feature-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: .5rem;
+}
+
+.feature-card p {
+  font-size: .95rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SERVICE CARD ICONS
+   ========================================================================== */
+.card .service-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--concrete-dark);
+  color: var(--orange);
+  margin-bottom: 1.25rem;
+}
+
+.card .service-icon svg { width: 24px; height: 24px; }
+
+/* ==========================================================================
+   SPLIT SECTION MEDIA — rounded, framed imagery
+   ========================================================================== */
+.media-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-dark);
+}
+
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   SECTION EYEBROW (small caption above section titles)
+   ========================================================================== */
+.eyebrow {
+  display: block;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: .75rem;
+}
+
+/* ==========================================================================
+   FOOTER — consistent across all pages
+   ========================================================================== */
+.footer-brand-logo {
+  height: 34px;
+  width: auto;
+  margin-bottom: 1.25rem;
+}
+
+.footer-grid p {
+  color: var(--text-muted);
+  margin-bottom: .35rem;
+}
+
+.footer-grid a:hover {
+  color: var(--orange-bright);
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+}
+
+.footer-nav-list a {
+  color: var(--text-muted);
+  transition: color .2s ease, padding-left .2s ease;
+}
+
+.footer-nav-list a:hover {
+  color: var(--white);
+  padding-left: .25rem;
+}
+
+/* ==========================================================================
+   CONTACT PAGE — info cards
+   ========================================================================== */
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 1.5rem;
+}
+
+.info-card h3 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--orange-deep);
+  margin-bottom: .85rem;
+}
+
+.info-card + .info-card { margin-top: 1.25rem; }
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.contact-actions .btn-large {
+  white-space: normal;
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 640px) {
+  .contact-actions { flex-direction: row; flex-wrap: wrap; }
+  .contact-actions .btn-large { flex: 1 1 auto; width: auto; }
+}
+
+/* ==========================================================================
+   GALLERY — lightbox navigation
+   ========================================================================== */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.25);
+  color: var(--white);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.lightbox-nav:hover { background: var(--orange); border-color: var(--orange); }
+.lightbox-prev { left: clamp(1rem, 4vw, 3rem); }
+.lightbox-next { right: clamp(1rem, 4vw, 3rem); }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.75);
+  font-size: .9rem;
+  letter-spacing: .5px;
+}
+
+@media (max-width: 640px) {
+  .lightbox-nav { width: 42px; height: 42px; font-size: 1.3rem; }
+}
+
+/* ==========================================================================
+   RESPONSIVE — hero + features on small screens
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-pro {
+    min-height: auto;
+    padding: 6.5rem 1.15rem 4rem;
+  }
+
+  .hero-pro h1 { font-size: var(--fs-xl); }
 }
