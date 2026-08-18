@@ -2,9 +2,10 @@
   const header = document.querySelector('[data-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
+  const forceSolidHeader = Boolean(header && header.classList.contains('scrolled'));
 
   const setHeader = () => {
-    if (header) header.classList.toggle('scrolled', window.scrollY > 24);
+    if (header) header.classList.toggle('scrolled', forceSolidHeader || window.scrollY > 24);
   };
   setHeader();
   window.addEventListener('scroll', setHeader, { passive: true });
